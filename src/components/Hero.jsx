@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text, Button} from "@chakra-ui/react";
-
+import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 
@@ -23,6 +23,7 @@ export default function Hero() {
         </Text>
 
           {/* Learn More Button */}
+          <Link to={'/about'}>
           <Button
             fontSize={"md"}
             fontWeight={600}
@@ -32,7 +33,6 @@ export default function Hero() {
             borderRadius={"5px"}
             width='200px'
             bg={primaryColor}
-            href={"#"}
             _hover={{
               bg: secondaryColor ,
               color: primaryColor ,
@@ -40,6 +40,7 @@ export default function Hero() {
           >
             Learn More
           </Button>
+          </Link>
       </Box>
 
       {/* Hero Image */}
