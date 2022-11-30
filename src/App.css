@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+  }
+
+.red{
+  border: 2px solid red;
+}
+
+/* Font */
+@font-face {
+  font-family: "Aeonik Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/font/FoundersGrotesk-Bold.otf");
+}
+
+@font-face {
+  font-family: "Aeonik Medium";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("./assets/font/Aeonik-Regular.otf");
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: "Aeonik Medium";
+}
