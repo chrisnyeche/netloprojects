@@ -15,7 +15,7 @@ const Impressum = () => {
   return (
     <>
       <NavBar />
-    <Flex justifyContent={"center"} alignItems={"center"} h={"100vh"} mt={16}>
+    <Flex justifyContent={"center"} alignItems={"center"} h={{base: "60vh", md: "100vh"}} mt={{base: 8, md: 16}}>
       <Box borderRadius={"12px"}>
       <Heading textAlign={'center'} color={secondaryColor} mt={{ base: 9, md: 4 }} fontFamily="Aeonik Bold" fontSize={{ base: "32px", md: "6xl" }}>
             COMING SOON

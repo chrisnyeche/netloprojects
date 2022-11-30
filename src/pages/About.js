@@ -77,7 +77,7 @@ function CaptionCarousel() {
 function Profile() {
   return (
     <Box my={5}>
-      <Flex alignItems={'center'}>
+      <Flex alignItems={'center'} flexDirection={{ base: "column", lg: "row" }}>
         <Box w={{ base: "100%", lg: "50%" }} px={{ base: 3, md: 6 }} textAlign={"justify"}>
           <Heading color={secondaryColor} mt={{ base: 9, md: 4 }} fontFamily="Aeonik Bold" fontSize={{ base: "32px", md: "6xl" }} lineHeight={"110%"}>
             DWH Warenhandel UG
