@@ -2,11 +2,14 @@ import { Container, Flex, Box, Heading, Text, IconButton, Button, VStack, HStack
 import { MdPhone, MdEmail, MdLocationOn, MdFacebook, MdOutlineEmail, } from "react-icons/md";
 import { BsWhatsapp, BsInstagram, BsTwitter, BsPerson } from "react-icons/bs";
 
+import { useTranslation } from "react-i18next";
+
 // Colors
 const secondaryColor = "#fbcc64";
 const primaryColor = "#001d3a";
 
 export default function Contact() {
+  const {t} = useTranslation()
   return (
     <Container bg={secondaryColor} maxW="full" mt={0} centerContent overflow="hidden" py={5} id="contact">
         <Box w={{base: '100%', md: "90%", lg: "80%"}} bg={primaryColor} color="white" borderRadius="lg" m={{ sm: 8, md: 10 }} p={{ sm: 5, md: 10, lg: 16 }}>
@@ -16,7 +19,7 @@ export default function Contact() {
                 <Box>
                   <Heading fontFamily={'Aeonik Bold'} fontSize={{base: "2xl", md: "5xl"}}>Contact Us</Heading>
                   <Text color="gray.500">
-                    Fill up the form below to contact us
+                    {t("formInfo")}
                   </Text>
                   <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                     <VStack>
@@ -58,27 +61,27 @@ export default function Contact() {
                   <Box m={8} color="#0B0E3F">
                     <VStack spacing={5}>
                       <FormControl id="name">
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel>{t("name")}</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement pointerEvents="none" children={<BsPerson color="gray.800" />} />
                           <Input type="text" size="md" />
                         </InputGroup>
                       </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Mail</FormLabel>
+                      <FormControl id="email">
+                        <FormLabel>{t("email")}</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement pointerEvents="none" children={<MdOutlineEmail color="gray.800" />} />
                           <Input type="text" size="md" />
                         </InputGroup>
                       </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Message</FormLabel>
+                      <FormControl id="message">
+                        <FormLabel>{t("message")}</FormLabel>
                         <Textarea
                           borderColor="gray.300"
                           _hover={{
                             borderRadius: "gray.300",
                           }}
-                          placeholder="message"
+                          placeholder={t("message")}
                         />
                       </FormControl>
                       <FormControl id="name" float="right">

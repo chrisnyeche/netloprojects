@@ -7,12 +7,16 @@ import { IoGlobeOutline, IoPhonePortrait } from "react-icons/io5";
 import { HiOutlineTruck, HiX } from "react-icons/hi";
 import { GiWeight } from "react-icons/gi";
 
+
+import { useTranslation, Trans } from "react-i18next";
+
 // Colors
 const secondaryColor = "#fbcc64";
 const primaryColor = "#001d3a";
 
 
 const HomeAppliances = () => {
+    const {t} = useTranslation()
     const { isOpen, onToggle, onClose } = useDisclosure();
     const Scroller = () => {
       onToggle();
@@ -25,42 +29,44 @@ const HomeAppliances = () => {
   
     const Appliances = [
       {
-        item: "Digital Microwave",
+        item: t("microwave"),
         image: "http://sc04.alicdn.com/kf/H0170de8271e24d59889c84b555ab22c3P.png",
       },
       {
-        item: "Caseline Iron Board",
+        item: t("iron"),
         image: "https://sc04.alicdn.com/kf/Ud92315365342464a94caa146301d428bJ.png",
       },
       {
-        item: "Stainless Electric Blender",
+        item: t("blender"),
         image: "http://sc04.alicdn.com/kf/HTB10MCiXLfsK1RjSszbq6AqBXXaS.jpg",
       },
       {
-        item: "Pedestal Standing Fan",
+        item: t("fan"),
         image: "https://sc04.alicdn.com/kf/HTB1_vBfaZrrK1Rjy1ze760alFXaa.png",
       },
       {
-        item: "Twin Tub Washing Machines",
+        item: t("twintub"),
         image: "https://sc04.alicdn.com/kf/H3a2a56765d36436fb1416ba244721a2cn.png",
       },
       {
-        item: "Double Door Refreigerator",
+        item: t("doubledoor"),
         image: "https://sc04.alicdn.com/kf/H044945898db94fe18f160d27cc7eb5f76.png",
       },
       {
-        item: "LED Android Smart Tv",
+        item: t("androidTV"),
         image: " http://sc04.alicdn.com/kf/H606a503af7064426bea95aa519d043f7y.png",
       },
       {
-        item: "Gas Cooker",
+        item: t("cooker"),
         image: "http://sc04.alicdn.com/kf/H47f873188d3a4fb2945f2566a17f42f4f.png",
       }, 
     ];
     return (
       <>
         <Heading bg={primaryColor} color={secondaryColor} textAlign={"center"} fontSize={{ base: "4xl", lg: "5xl" }}  px={2} pt={4} fontFamily={'Aeonik Bold'}>
-        Electronic (all kinds of electrical appliances)
+          <Trans i18nKey="electronicSection">
+            Electronic (all kinds of electrical appliances)
+          </Trans>
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} p={5}>
           {Appliances.map((data) => {
@@ -87,20 +93,22 @@ const HomeAppliances = () => {
                     <Box my={5} color="#0B0E3F" w="90%">
                       <VStack spacing={3}>
                         <Heading as="h2" fontSize={{base: "24px", md: '4xl'}}>
-                          REQUEST FORM
+                          <Trans i18nKey="requestForm">
+                            REQUEST FORM
+                          </Trans>
                         </Heading>
                         {/* Name */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<BsPerson color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Name/ Name of Company" />
+                            <Input type="text" size="md" placeholder={t("name")} />
                           </InputGroup>
                         </FormControl>
                         {/* Email */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<MdOutlineEmail color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Email Address" />
+                            <Input type="text" size="md" placeholder={t("email")} />
                           </InputGroup>
                         </FormControl>
   
@@ -108,7 +116,7 @@ const HomeAppliances = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoGlobeOutline color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Country" />
+                            <Input type="text" size="md" placeholder={t("country")} />
                           </InputGroup>
                         </FormControl>
   
@@ -116,7 +124,7 @@ const HomeAppliances = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<HiOutlineTruck color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Shipping Address" />
+                            <Input type="text" size="md" placeholder={t("shipping")} />
                           </InputGroup>
                         </FormControl>
   
@@ -124,7 +132,7 @@ const HomeAppliances = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoPhonePortrait color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Phone Number" />
+                            <Input type="number" size="md" placeholder={t("phone")} />
                           </InputGroup>
                         </FormControl>
   
@@ -132,7 +140,7 @@ const HomeAppliances = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<GiWeight color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Quantity" />
+                            <Input type="number" size="md" placeholder={t("quantity")} />
                           </InputGroup>
                         </FormControl>
   
@@ -143,7 +151,7 @@ const HomeAppliances = () => {
                             _hover={{
                               borderRadius: "gray.300",
                             }}
-                            placeholder="Briefly describe your request or requirement"
+                            placeholder={t("desc")}
                           />
                         </FormControl>
   

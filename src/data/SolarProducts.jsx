@@ -7,12 +7,15 @@ import { IoGlobeOutline, IoPhonePortrait } from "react-icons/io5";
 import { HiOutlineTruck, HiX } from "react-icons/hi";
 import { GiWeight } from "react-icons/gi";
 
+import { useTranslation, Trans } from "react-i18next";
+
 // Colors
 const primaryColor = "#fbcc64";
 const secondaryColor = "#001d3a";
 
 
 const SolarProducts = () => {
+  const {t} = useTranslation()
     const { isOpen, onToggle, onClose } = useDisclosure();
     const Scroller = () => {
       onToggle();
@@ -25,33 +28,39 @@ const SolarProducts = () => {
   
     const Solardata = [
       {
-        item: "Grade A Solar Panel",
+        item: t("gradeA"),
         image: "http://sc04.alicdn.com/kf/HTB1BEYOXzzuK1RjSspe762iHVXa7.png",
       },
       {
-        item: "Seraphim Solar Panel",
+        item: t("seraphim"),
         image: "http://sc04.alicdn.com/kf/H5d68573855b1434ab5e39ba2dead0b10S.png",
       },
       {
-        item: "Monocrystalline Solar Panel",
+        item: t("monocrystal"),
         image: "https://5.imimg.com/data5/SELLER/Default/2021/7/CW/JP/FH/5474969/85-watt-mono-crysteline-solar-panel-500x500.jpg",
       },
       {
-        item: "Nomad Solar Panel",
+        item: t("nomad"),
         image: "https://5.imimg.com/data5/SELLER/Default/2020/8/XO/ZX/HX/66068630/260-watt-monocrystalline-solar-panel-250x250.jpg",
       },
     ];
     return (
       <>
         <Heading bg={primaryColor} textAlign={"center"} fontSize={{ base: "4xl", lg: "5xl" }} mt={5}  px={2} pt={4} fontFamily={'Aeonik Bold'}>
-          Used & New Solar Panels
+          <Trans i18nKey="solarSection">
+            Used & New Solar Panels
+          </Trans>
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} p={5}>
-          {Solardata.map((data) => {
+          {Solardata.map(({item, image}) => {
             return (
-              <Box h={"400px"} w={{ base: "99%", lg: "300px" }} boxShadow={"xl"} borderRadius={"12px"} p={3} mx='auto' my={{base: 2, md: 0}} key={data.item}>
-                <Image src={data.image} w="full" h="290px" />
-                <Text fontSize={{ base: "lg", lg: "xl" }}> {data.item} </Text>
+              <Box h={"400px"} w={{ base: "99%", lg: "300px" }} boxShadow={"xl"} borderRadius={"12px"} p={3} mx='auto' my={{base: 2, md: 0}} key={item}>
+                <Image src={image} w="full" h="290px" />
+                <Text fontSize={{ base: "lg", lg: "xl" }}>
+                  {/* <Trans i18nKey="solarItem"> */}
+                    {item}
+                  {/* </Trans> */}
+                </Text>
                 <Button colorScheme={"green"} onClick={Scroller} my={3}>
                   Make Request
                 </Button>              
@@ -70,20 +79,22 @@ const SolarProducts = () => {
                     <Box my={5} color="#0B0E3F" w="90%">
                       <VStack spacing={3}>
                       <Heading as="h2" fontSize={{base: "24px", md: '4xl'}}>
-                          REQUEST FORM
+                          <Trans i18nKey="requestForm">
+                            REQUEST FORM
+                          </Trans>
                         </Heading>
                         {/* Name */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<BsPerson color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Name/ Name of Company" />
+                            <Input type="text" size="md" placeholder={t("name")} />
                           </InputGroup>
                         </FormControl>
                         {/* Email */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<MdOutlineEmail color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Email Address" />
+                            <Input type="text" size="md" placeholder={t("email")} />
                           </InputGroup>
                         </FormControl>
   
@@ -91,7 +102,7 @@ const SolarProducts = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoGlobeOutline color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Country" />
+                            <Input type="text" size="md" placeholder={t("country")} />
                           </InputGroup>
                         </FormControl>
   
@@ -99,7 +110,7 @@ const SolarProducts = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<HiOutlineTruck color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Shipping Address" />
+                            <Input type="text" size="md" placeholder={t("shipping")} />
                           </InputGroup>
                         </FormControl>
   
@@ -107,7 +118,7 @@ const SolarProducts = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoPhonePortrait color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Phone Number" />
+                            <Input type="number" size="md" placeholder={t("phone")} />
                           </InputGroup>
                         </FormControl>
   
@@ -115,7 +126,7 @@ const SolarProducts = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<GiWeight color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Quantity" />
+                            <Input type="number" size="md" placeholder={t("quantity")} />
                           </InputGroup>
                         </FormControl>
   
@@ -126,7 +137,7 @@ const SolarProducts = () => {
                             _hover={{
                               borderRadius: "gray.300",
                             }}
-                            placeholder="Briefly describe your request or requirement"
+                            placeholder={t("desc")}
                           />
                         </FormControl>
   

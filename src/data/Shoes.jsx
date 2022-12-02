@@ -7,12 +7,15 @@ import { IoGlobeOutline, IoPhonePortrait } from "react-icons/io5";
 import { HiOutlineTruck, HiX } from "react-icons/hi";
 import { GiWeight } from "react-icons/gi";
 
+import { useTranslation, Trans } from "react-i18next";
+
 // Colors
 const secondaryColor = "#fbcc64";
 const primaryColor = "#001d3a";
 
 
 const Shoes = () => {
+    const {t} = useTranslation()
     const { isOpen, onToggle, onClose } = useDisclosure();
     const Scroller = () => {
       onToggle();
@@ -25,26 +28,28 @@ const Shoes = () => {
   
     const shoeData = [
       {
-        item: "Trainer Shoes",
+        item: t("trainers"),
         image: "http://sc04.alicdn.com/kf/H96b9c5faf6fa4f6d897383a0bed1d0b9M.png",
       },
       {
-        item: "Sneakers",
+        item: t("sneakers"),
         image: "http://sc04.alicdn.com/kf/H487dfc1cf5e24f80afe8bba313d6fbb0R.png",
       },
       {
-        item: "Safety Boots",
+        item: t("boots"),
         image: "https://lzd-img-global.slatic.net/g/p/54bd1e04abb029a83085978730b8b380.jpg_720x720q80.jpg_.webp",
       },
       {
-        item: "Fancy Timbaland Shoes",
+        item: t("timbaland"),
         image: "https://s.alicdn.com/@sc04/kf/H10a7176bad7946fbb90f9373f9f6b0ecG.png_300x300.png",
       }, 
     ];
     return (
       <>
         <Heading color={primaryColor} bg={secondaryColor} textAlign={"center"} fontSize={{ base: "4xl", lg: "5xl" }}  px={2} pt={4}fontFamily={'Aeonik Bold'}>
-        Shoes (Trainers shoes, Sneakers and safety boots)
+          <Trans i18nKey="shoeSection">
+            Shoes (Trainers shoes, Sneakers and safety boots)
+          </Trans>
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} p={5}>
           {shoeData.map((data) => {
@@ -71,20 +76,22 @@ const Shoes = () => {
                     <Box my={5} color="#0B0E3F" w="90%">
                       <VStack spacing={3}>
                       <Heading as="h2" fontSize={{base: "24px", md: '4xl'}}>
-                          REQUEST FORM
+                          <Trans i18nKey="requestForm">
+                            REQUEST FORM
+                          </Trans>
                         </Heading>
                         {/* Name */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<BsPerson color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Name/ Name of Company" />
+                            <Input type="text" size="md" placeholder={t("name")} />
                           </InputGroup>
                         </FormControl>
                         {/* Email */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<MdOutlineEmail color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Email Address" />
+                            <Input type="text" size="md" placeholder={t("email")} />
                           </InputGroup>
                         </FormControl>
   
@@ -92,7 +99,7 @@ const Shoes = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoGlobeOutline color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Country" />
+                            <Input type="text" size="md" placeholder={t("country")} />
                           </InputGroup>
                         </FormControl>
   
@@ -100,7 +107,7 @@ const Shoes = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<HiOutlineTruck color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Shipping Address" />
+                            <Input type="text" size="md" placeholder={t("shipping")} />
                           </InputGroup>
                         </FormControl>
   
@@ -108,7 +115,7 @@ const Shoes = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoPhonePortrait color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Phone Number" />
+                            <Input type="number" size="md" placeholder={t("phone")} />
                           </InputGroup>
                         </FormControl>
   
@@ -116,7 +123,7 @@ const Shoes = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<GiWeight color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Quantity" />
+                            <Input type="number" size="md" placeholder={t("quantity")} />
                           </InputGroup>
                         </FormControl>
   
@@ -127,7 +134,7 @@ const Shoes = () => {
                             _hover={{
                               borderRadius: "gray.300",
                             }}
-                            placeholder="Briefly describe your request or requirement"
+                            placeholder={t("desc")}
                           />
                         </FormControl>
   

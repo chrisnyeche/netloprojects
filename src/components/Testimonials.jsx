@@ -8,6 +8,7 @@ import {
   Avatar,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useTranslation, Trans } from 'react-i18next';
 
 const Testimonial = ({ children }) => {
   return <Box>{children}</Box>;
@@ -81,21 +82,28 @@ const TestimonialAvatar = ({
 };
 
 export default function Testimonials() {
+  const { t } = useTranslation();
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.700')} fontFamily={'Aeonik medium'}>
       <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
         <Stack spacing={0} align={'center'}>
-          <Heading>Our Clients Speak</Heading>
-          <Text>We have been working with clients around the world</Text>
+          <Heading>{ t('clientHeading')}</Heading>
+          <Text>{ t('clientSub')}</Text>
         </Stack>
         <Stack
           direction={{ base: 'column', md: 'row' }}
           spacing={{ base: 10, md: 4, lg: 10 }}>
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Fast Delivery</TestimonialHeading>
+              <TestimonialHeading>
+                <Trans i18nKey="thead1">
+                  Fast Delivery
+                </Trans>
+              </TestimonialHeading>
               <TestimonialText>
-                They deliver goods efficiently and very fast. Goods did not take time before it got to me.
+                <Trans i18nKey="tcontent1">
+                  They deliver goods efficiently and very fast. Goods did not take time before they got to me.
+                </Trans>
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
@@ -108,9 +116,15 @@ export default function Testimonials() {
           </Testimonial>
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Latest Product</TestimonialHeading>
+              <TestimonialHeading>
+                <Trans i18nKey="thead2">
+                  Latest Product
+                </Trans>
+              </TestimonialHeading>
               <TestimonialText>
-                They Happen to know the latest products in the market and they ship it to me.
+                <Trans i18nKey="tcontent2">
+                  They Happen to know the latest products in the market and they ship them to me.
+                </Trans>
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar
@@ -123,9 +137,15 @@ export default function Testimonials() {
           </Testimonial>
           <Testimonial>
             <TestimonialContent>
-              <TestimonialHeading>Mindblowing Service</TestimonialHeading>
+              <TestimonialHeading>
+                <Trans i18nKey="thead3">
+                  Mind Blowing Service
+                </Trans>
+              </TestimonialHeading>
               <TestimonialText>
-                Their Customer Care and their trucks is what I love most about them. Very durable.
+                <Trans i18nKey="tcontent3">
+                  Their Customer Care and their trucks are what I love most about them. Very durable.
+                </Trans>
               </TestimonialText>
             </TestimonialContent>
             <TestimonialAvatar

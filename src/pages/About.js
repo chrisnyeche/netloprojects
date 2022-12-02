@@ -13,6 +13,8 @@ import Footer from "./../components/Footer";
 import { Flex } from "@chakra-ui/react";
 import { Player } from "@lottiefiles/react-lottie-player";
 
+import { useTranslation, Trans } from "react-i18next";
+
 // Settings for the slider
 const settings = {
   // dots: true,
@@ -75,6 +77,7 @@ function CaptionCarousel() {
 }
 
 function Profile() {
+  const { t } = useTranslation();
   return (
     <Box my={5}>
       <Flex alignItems={'center'} flexDirection={{ base: "column", lg: "row" }}>
@@ -84,21 +87,22 @@ function Profile() {
           </Heading>
           {/* Hero Text Details */}
           <Text color={"gray.500"} maxW={{ base: "97%", lg: "90%" }} my={6}>
-            DWH Warenhandel is a trading company with multiple experiences in many types of commercial goods, the most important of them are used and new Solar panels, all kinds of household electrical appliances, Medical tools, Cosmetics, Cars and heavy vehicles, Auto parts and many other items. And also we can provide goods requested by merchants (buyers), and our focus and principal market are merchants residing in the countries of the Middle East in general and Arab countries, however, we also supply to other regions worldwide. <br />
-            We find the best offers for the previously mentioned goods and commodities through our strong experience, relationship, and our constant communication directly with the suppliers and manufacturers of these items. Our company also has contact with shipping companies. For example, if an agreement is reached between us and the merchant, we discuss whether we receive the shipping process in coordination with international shipping companies, and appropriate and satisfactory prices can also be provided.
+            <Trans i18nKey="aboutText">
+              DWH Warenhandel is a trading company with multiple experiences in many types of commercial goods, the most important of them are used and new Solar panels, all kinds of household electrical appliances, Medical tools, Cosmetics, Cars and heavy vehicles, Auto parts and many other items. And also we can provide goods requested by merchants (buyers), and our focus and principal market are merchants residing in the countries of the Middle East in general and Arab countries, however, we also supply to other regions worldwide.<br />We find the best offers for the previously mentioned goods and commodities through our strong experience, relationship, and our constant communication directly with the suppliers and manufacturers of these items. Our company also has contact with shipping companies. For example, if an agreement is reached between us and the merchant, we discuss whether we receive the shipping process in coordination with international shipping companies, and appropriate and satisfactory prices can also be provided.
+            </Trans>
           </Text>
 
           <Heading color={secondaryColor} mt={{ base: 9, md: 8 }} fontFamily="Aeonik Bold" fontSize={{ base: "32px", md: "3xl" }}>
-            OUR VISION
+            {t('vision')}
           </Heading>
           <Text color={"gray.500"} maxW={{ base: "97%", lg: "90%" }} mb={8}>
-          Establishing and nurturing lifetime relationships with our customers.
+            {t('visionText')}
           </Text>
           <Heading color={secondaryColor} mt={{ base: 9, md: 4 }} fontFamily="Aeonik Bold" fontSize={{ base: "32px", md: "3xl" }}>
-            OUR MISSION
+            {t('mission')}
           </Heading>
           <Text color={"gray.500"} maxW={{ base: "97%", lg: "90%" }}>
-          To earn our Customer’s loyalty by delivering sales and service experiences with high quality, excellent value, integrity and enthusiasm and striving to go the extra step that transforms Customer Satisfaction into Customer Delight.
+            {t('missionText')}
           </Text>
         </Box>
 

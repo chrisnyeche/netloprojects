@@ -7,12 +7,15 @@ import { IoGlobeOutline, IoPhonePortrait } from "react-icons/io5";
 import { HiOutlineTruck, HiX } from "react-icons/hi";
 import { GiWeight } from "react-icons/gi";
 
+import { useTranslation, Trans } from "react-i18next";
+
 // Colors
 const secondaryColor = "#fbcc64";
 const primaryColor = "#001d3a";
 
 
 const Medical = () => {
+    const {t} = useTranslation()
     const { isOpen, onToggle, onClose } = useDisclosure();
     const Scroller = () => {
       onToggle();
@@ -25,42 +28,44 @@ const Medical = () => {
   
     const MedicalAppliances = [
       {
-        item: "Pulse Oximeter sensor",
+        item: t("sensor"),
         image: "http://sc04.alicdn.com/kf/H5b04d41caafa45339b7622262fb2717ce.jpg",
       },
       {
-        item: "ICU bed",
+        item: t("icubed"),
         image: "https://sc04.alicdn.com/kf/H2f3fe71c38414bbcaee885c2fbda43a7i.jpg",
       },
       {
-        item: "Defibrillators",
+        item: t("defib"),
         image: "https://s.alicdn.com/@sc04/kf/HTB1lK5ue8Cw3KVjSZFlq6AJkFXa3.jpg_300x300.jpg",
       },
       {
-        item: "Electrosurgical Units",
+        item: t("surgical"),
         image: "http://sc04.alicdn.com/kf/H77bae4de6a0d4b20a34978f2e922d762i.jpg",
       },
       {
-        item: "Surgical Lights",
+        item: t("light"),
         image: "http://sc04.alicdn.com/kf/H2dbb0e4e5e614c19931895eaf0291503n.jpg",
       },
       {
-        item: "Hospital Stretchers",
+        item: t("stretcher"),
         image: "https://sc04.alicdn.com/kf/U75b5b7d476cd42719aa6f756156871e2d.png",
       },
       {
-        item: "Patient Monitor",
+        item: t("monitor"),
         image: "https://s.alicdn.com/@sc04/kf/H58c39979470241eeb29a4605f9f6490cx.png_300x300.png",
       },
       {
-        item: "EKG/ECG Machines",
+        item: t("ecg"),
         image: "https://s.alicdn.com/@sc04/kf/H85557ce5fb7c497dbb229d9ec53ea143i.jpg_300x300.jpg",
       }, 
     ];
     return (
       <>
         <Heading bg={primaryColor} color={secondaryColor} textAlign={"center"} fontSize={{ base: "4xl", lg: "5xl" }}fontFamily={'Aeonik Bold'}  px={2} pt={4}>
-        Medical Machines & Equipments
+          <Trans i18nKey="medicalSection">
+            Medical Machines & Equipments
+          </Trans>
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} p={5}>
           {MedicalAppliances.map((data) => {
@@ -87,20 +92,22 @@ const Medical = () => {
                     <Box my={5} color="#0B0E3F" w="90%">
                       <VStack spacing={3}>
                       <Heading as="h2" fontSize={{base: "24px", md: '4xl'}}>
-                          REQUEST FORM
+                          <Trans i18nKey="requestForm">
+                            REQUEST FORM
+                          </Trans>
                         </Heading>
                         {/* Name */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<BsPerson color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Name/ Name of Company" />
+                            <Input type="text" size="md" placeholder={t("name")} />
                           </InputGroup>
                         </FormControl>
                         {/* Email */}
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<MdOutlineEmail color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Email Address" />
+                            <Input type="text" size="md" placeholder={t("email")} />
                           </InputGroup>
                         </FormControl>
   
@@ -108,7 +115,7 @@ const Medical = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoGlobeOutline color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Country" />
+                            <Input type="text" size="md" placeholder={t("country")} />
                           </InputGroup>
                         </FormControl>
   
@@ -116,7 +123,7 @@ const Medical = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<HiOutlineTruck color="gray.800" />} />
-                            <Input type="text" size="md" placeholder="Shipping Address" />
+                            <Input type="text" size="md" placeholder={t("shipping")} />
                           </InputGroup>
                         </FormControl>
   
@@ -124,7 +131,7 @@ const Medical = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<IoPhonePortrait color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Phone Number" />
+                            <Input type="number" size="md" placeholder={t("phone")} />
                           </InputGroup>
                         </FormControl>
   
@@ -132,7 +139,7 @@ const Medical = () => {
                         <FormControl>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement pointerEvents="none" children={<GiWeight color="gray.800" />} />
-                            <Input type="number" size="md" placeholder="Quantity" />
+                            <Input type="number" size="md" placeholder={t("quantity")} />
                           </InputGroup>
                         </FormControl>
   
@@ -143,7 +150,7 @@ const Medical = () => {
                             _hover={{
                               borderRadius: "gray.300",
                             }}
-                            placeholder="Briefly describe your request or requirement"
+                            placeholder={t("desc")}
                           />
                         </FormControl>
   

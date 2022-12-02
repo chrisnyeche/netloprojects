@@ -6,6 +6,7 @@ import './App.css'
 import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import './i18n'
 
 //import animate
 import 'animate.css';
@@ -18,8 +19,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-    <BrowserRouter>
-        <App />
+      <BrowserRouter>
+        <React.Suspense fallback="Please wait...">
+          <App />
+        </React.Suspense>
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>

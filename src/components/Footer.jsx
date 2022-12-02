@@ -1,6 +1,7 @@
 import { Box, Container, SimpleGrid, Stack, Text, Flex, useColorModeValue, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
+import { useTranslation } from 'react-i18next';
 
 const ListHeader = ({ children }) => {
   return (
@@ -15,6 +16,11 @@ const primaryColor = "#fbcc64";
 const secondaryColor = "#001d3a";
 
 export default function Footer() {
+  const { t, i18n } = useTranslation();
+  // const lngs = {
+  //   en: {nativeName: 'English'},
+  //   de: {nativeName: 'Deutch'}
+  // }
   const newDate = () =>{
       //return a new Date() -- returns the current calendar year.
       return new Date().getFullYear();
@@ -24,39 +30,39 @@ export default function Footer() {
       <Container as={Stack} maxW={"97%"} py={10} mx="auto">
         <SimpleGrid columns={{ base: 2, sm: 2, md: 3, lg: 5 }} spacing={8} ms={{ lg: 9 }}>
           <Stack align={"flex-start"}>
-            <ListHeader>Company</ListHeader>
+            <ListHeader>{ t('company')}</ListHeader>
             <Link to={'/impressum'}>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}>Impressum</Text>
             </Link>
             <Link to={'/about'}>
-            <Text as="a"  href={"#"} _hover={{borderBottom: `1px solid ${primaryColor}`}}>About Us</Text>
+            <Text as="a"  href={"#"} _hover={{borderBottom: `1px solid ${primaryColor}`}}>{t('about')}</Text>
             </Link>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#contact"}>Contact Us</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#contact"}>{t('contact')}</Text>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Legal</ListHeader>
+            <ListHeader>{t('legal')}</ListHeader>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Privacy Policy</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Terms of Service</Text>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Languages</ListHeader>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>German</Text>
+            <ListHeader>{ t('languages')}</ListHeader>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"} onClick={() => i18n.changeLanguage('de')}>German</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Arabic</Text>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#"}>English</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#"} onClick={() => i18n.changeLanguage('en')}>English</Text>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Follow Us</ListHeader>
+            <ListHeader>{ t('socials')}</ListHeader>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"https://www.facebook.com/people/Dwh-Warenhandel/100088262255625/"}>Facebook</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"https://www.twitter.com/dwhwarenhandel"}>Twitter</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"https://www.instagram.com/dwhwarenhandel"}>Instagram</Text>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Products</ListHeader>
-            <Text>Solar Panels </Text>
-            <Text>Electronic Appliances</Text>
-            <Text>Shoes & Safety boots</Text>
-            <Text>Medical Equipments </Text>
-            <Text>Auto parts</Text>
+            <ListHeader>{ t('product')}</ListHeader>
+            <Text>{ t('solar')}</Text>
+            <Text>{ t('electronics')}</Text>
+            <Text>{ t('shoes')}</Text>
+            <Text>{ t('medical')}</Text>
+            <Text>{ t('autopart')}</Text>
           </Stack>
         </SimpleGrid>
       </Container>
