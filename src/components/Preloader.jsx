@@ -18,9 +18,9 @@ const Preloader = () => {
     <>
     {!loader ?  <Flex h="100vh" justifyContent={"center"} alignItems={"center"} flexDirection={{ base: "column" }} position={"relative"}>
       <Player autoplay loop src={PreloaderAnimation} />
-      {/* <Text as={"h2"} color="#001d3a" fontFamily={"Aeonik Medium"} fontSize={{ base: "3xl", lg: "5xl" }}>
+      <Text as={"h2"} color="#001d3a" fontFamily={"Aeonik Medium"} fontSize={{ base: "3xl", lg: "5xl" }}>
         Loading...
-      </Text> */}
+      </Text>
     </Flex> : <Home/>}
     </>
 
