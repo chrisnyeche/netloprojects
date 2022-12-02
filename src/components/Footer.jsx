@@ -16,7 +16,19 @@ const primaryColor = "#fbcc64";
 const secondaryColor = "#001d3a";
 
 export default function Footer() {
+  
   const { t, i18n } = useTranslation();
+
+  const handleChange = (e) => {
+    let lng = e.target.href
+    if (window.location.hash === lng) {
+      return false
+    } else {
+      lng = lng.split('#')[1]
+      window.scrollTo(0,0)
+      i18n.changeLanguage(lng)
+    }
+  }
   // const lngs = {
   //   en: {nativeName: 'English'},
   //   de: {nativeName: 'Deutch'}
@@ -46,9 +58,9 @@ export default function Footer() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>{ t('languages')}</ListHeader>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#de"} onClick={() => i18n.changeLanguage('de')}>German</Text>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Arabic</Text>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#en"} onClick={() => i18n.changeLanguage('en')}>English</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#de"} onClick={handleChange}>German</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#ar"}>Arabic</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#en"} onClick={handleChange}>English</Text>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>{ t('socials')}</ListHeader>
