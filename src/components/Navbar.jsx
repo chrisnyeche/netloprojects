@@ -1,7 +1,6 @@
 import { Box, Flex, Text, IconButton,  Stack, Collapse, Popover, PopoverTrigger, useColorModeValue, useDisclosure, Image } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
-import { useTranslation, Trans } from 'react-i18next';
 
 // Images
 import Logo from "../assets/images/logo.png";

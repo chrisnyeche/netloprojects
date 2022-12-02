@@ -2,6 +2,7 @@ import { Box, Container, SimpleGrid, Stack, Text, Flex, useColorModeValue, Image
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import { useTranslation } from 'react-i18next';
+import {useEffect, useState} from 'react'
 
 const ListHeader = ({ children }) => {
   return (
@@ -16,8 +17,12 @@ const primaryColor = "#fbcc64";
 const secondaryColor = "#001d3a";
 
 export default function Footer() {
-  
   const { t, i18n } = useTranslation();
+  const [dir, setDir] = useState(`${i18n.resolvedLanguage === 'ar' ? 'rtl' : 'ltr'}`);
+  
+  useEffect(() => {
+    document.getElementsByTagName('html')[0].setAttribute('dir', dir)
+  }, [dir])
 
   const handleChange = (e) => {
     let lng = e.target.href
@@ -25,6 +30,11 @@ export default function Footer() {
       return false
     } else {
       lng = lng.split('#')[1]
+      if (lng === 'ar') {
+        setDir('rtl')
+      }else{
+        setDir('ltr')
+      }
       window.scrollTo(0,0)
       i18n.changeLanguage(lng)
     }
@@ -40,7 +50,7 @@ export default function Footer() {
   return (
     <Box bg={secondaryColor} color={primaryColor}>
       <Container as={Stack} maxW={"97%"} py={10} mx="auto">
-        <SimpleGrid columns={{ base: 2, sm: 2, md: 3, lg: 5 }} spacing={8} ms={{ lg: 9 }}>
+        <SimpleGrid columns={{ base: 2, sm: 2, md: 4, lg: 4 }} spacing={8} ms={{ lg: 9 }}>
           <Stack align={"flex-start"}>
             <ListHeader>{ t('company')}</ListHeader>
             <Link to={'/impressum'}>
@@ -51,15 +61,15 @@ export default function Footer() {
             </Link>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#contact"}>{t('contact')}</Text>
           </Stack>
-          <Stack align={"flex-start"}>
+          {/* <Stack align={"flex-start"}>
             <ListHeader>{t('legal')}</ListHeader>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Privacy Policy</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Terms of Service</Text>
-          </Stack>
+          </Stack> */}
           <Stack align={"flex-start"}>
             <ListHeader>{ t('languages')}</ListHeader>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#de"} onClick={handleChange}>German</Text>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#ar"}>Arabic</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#ar"} onClick={handleChange}>Arabic</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#en"} onClick={handleChange}>English</Text>
           </Stack>
           <Stack align={"flex-start"}>

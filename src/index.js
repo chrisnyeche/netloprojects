@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './i18n'
+import Preloader from "./components/Preloader";
 
 //import animate
 import 'animate.css';
@@ -20,7 +21,7 @@ root.render(
   <React.StrictMode>
     <ChakraProvider>
       <BrowserRouter>
-        <React.Suspense fallback="Please wait...">
+        <React.Suspense fallback={<Preloader/>}>
           <App />
         </React.Suspense>
       </BrowserRouter>
