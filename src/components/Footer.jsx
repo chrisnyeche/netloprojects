@@ -46,9 +46,9 @@ export default function Footer() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>{ t('languages')}</ListHeader>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"} onClick={() => i18n.changeLanguage('de')}>German</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#de"} onClick={() => i18n.changeLanguage('de')}>German</Text>
             <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}} href={"#"}>Arabic</Text>
-            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#"} onClick={() => i18n.changeLanguage('en')}>English</Text>
+            <Text as="a" _hover={{borderBottom: `1px solid ${primaryColor}`}}  href={"#en"} onClick={() => i18n.changeLanguage('en')}>English</Text>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>{ t('socials')}</ListHeader>
