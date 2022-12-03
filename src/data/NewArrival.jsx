@@ -32,7 +32,7 @@ export default function NewArrival() {
   
     {
       isNew: true,
-      imageURL: 'https://5.imimg.com/data5/SELLER/Default/2021/7/CW/JP/FH/5474969/85-watt-mono-crysteline-solar-panel-500x500.jpg',
+      imageURL: 'https://res.cloudinary.com/dkvuhqzz8/image/upload/v1670078019/dwh/220825_intro_NUJC410B_front_n_back_press-1200x800_zvdq6d.jpg',
       name: t("polycrystal"),
     },
   ];

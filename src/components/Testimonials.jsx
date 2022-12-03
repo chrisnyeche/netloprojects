@@ -108,10 +108,10 @@ export default function Testimonials() {
             </TestimonialContent>
             <TestimonialAvatar
               src={
-                'https://media.glamourmagazine.co.uk/photos/6138b5732b5bbea008293465/1:1/w_1920,h_1920,c_limit/nuralailalov_SQ.jpg'
+                'https://res.cloudinary.com/dkvuhqzz8/image/upload/v1670080545/dwh/nuralailalov_SQ_gb07jc.webp'
               }
               name={'Aisha Imani Mira'}
-              title={'Marketer at Deutsche & Co.'}
+              title={'Marketer at Power Maxma'}
             />
           </Testimonial>
           <Testimonial>
@@ -129,10 +129,10 @@ export default function Testimonials() {
             </TestimonialContent>
             <TestimonialAvatar
               src={
-                'https://brandedgirls.b-cdn.net/wp-content/uploads/2015/11/almousa_su-700x.jpeg'
+                'https://res.cloudinary.com/dkvuhqzz8/image/upload/v1670080621/dwh/almousa_su-700x_rqypzt.jpg'
               }
               name={'Nasir Omar Samir'}
-              title={'Sales Rep. at Adidas'}
+              title={'Sales Rep. Gulf Electronics Company'}
             />
           </Testimonial>
           <Testimonial>
@@ -150,10 +150,10 @@ export default function Testimonials() {
             </TestimonialContent>
             <TestimonialAvatar
               src={
-                'https://media.istockphoto.com/id/1188035960/photo/arabian-man-with-traditional-dress.jpg?s=170667a&w=0&k=20&c=WjhIUtBwRQj0GKJTABxKhh6P-EWoMdtptqZ5DU5wKyQ='
+                'https://res.cloudinary.com/dkvuhqzz8/image/upload/v1670080722/dwh/img_xxrni3.jpg'
               }
               name={'Ahmed Saliba Haram'}
-              title={'CEO at Ahmed Group & CO'}
+              title={'Head of Logistics at Jini Auto Spare Parts Co. LLC'}
             />
           </Testimonial>
         </Stack>
