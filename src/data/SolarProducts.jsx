@@ -1,4 +1,4 @@
-import { Box, Heading, Image, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { useTranslation, Trans } from "react-i18next";
 
 // Colors
@@ -41,7 +41,7 @@ const SolarProducts = ({formModal}) => {
             Used & New Solar Panels
           </Trans>
         </Heading>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} p={5}>
+        <Flex justifyContent='center' flexDirection={{ base: 'column', md: 'row' }} p={5}>
           {Solardata.map(({item, image}) => {
             return (
               <Box h={"400px"} w={{ base: "99%", lg: "300px" }} boxShadow={"xl"} borderRadius={"12px"} p={3} mx='auto' my={{base: 2, md: 0}} key={item}>
@@ -49,11 +49,11 @@ const SolarProducts = ({formModal}) => {
                 <Text fontSize={{ base: "lg", lg: "xl" }}>
                     {item}
                 </Text>
-                {formModal}              
+                {formModal}
               </Box>
             );
           })}
-        </SimpleGrid>
+        </Flex>
       </>
     );
   };
