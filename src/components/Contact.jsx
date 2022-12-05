@@ -33,9 +33,9 @@ export default function Contact() {
                           info@dwh-warenhandel.de
                         </Button>
                         </Link>
-                        {/* <Button size="md" height="48px" width="250px" variant="ghost" color="#DCE2FF" _hover={{ border: "2px solid #1C6FEB" }} leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
-                          Ackerstraße 30, 46483 Wesel
-                        </Button> */}
+                        <Button size="md" height="48px" width="250px" variant="ghost" color="#DCE2FF" _hover={{ border: "2px solid #1C6FEB" }} leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
+                          Alfredstraße 60, 45130 Essen
+                        </Button>
                     </VStack>
                   </Box>
                   <HStack mt={{ lg: 10, md: 10 }} spacing={5} px={5} alignItems="flex-start">
